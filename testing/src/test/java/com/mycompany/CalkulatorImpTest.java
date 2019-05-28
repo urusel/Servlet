@@ -6,6 +6,7 @@
 package com.mycompany;
 
 import javax.xml.transform.Result;
+import static jdk.nashorn.internal.objects.Global.Infinity;
 import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.*;
@@ -45,5 +46,10 @@ public class CalkulatorImpTest {
     public void addTest_2() throws Exception{
         double result= calkulator.calculate("(2+2)*1.5/10-444");
         assertEquals(-443.4, result, 1e-9);
+}
+     @Test
+    public void addTest_3() throws Exception{
+        double result= calkulator.calculate("1/0");
+        assertEquals(Infinity, result, 1e-9);
 }
 }

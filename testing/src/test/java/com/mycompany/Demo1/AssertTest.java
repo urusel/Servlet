@@ -5,6 +5,7 @@
  */
 package com.mycompany.Demo1;
 
+import static jdk.nashorn.internal.objects.Global.Infinity;
 import org.junit.Assert;
 import static org.junit.Assert.assertEquals;
 import org.junit.Ignore;
@@ -21,11 +22,18 @@ public class AssertTest {
     public void substring() {
         assertEquals("llo", "Hello".substring(3));
     }
-@Test
+
+    @Test
     public void demo_test() {
-        assertEquals( "Hello", "Hel" + "lo");
+        assertEquals("Hello", "Hel" + "lo");
         assertEquals(1.0,
-                1d/3 + 1d/3 + 1d/3,
+                1d / 3 + 1d / 3 + 1d / 3,
                 1e-10);
-}
+    }
+
+    @Test(expected = ArithmeticException.class)
+    public void zero_division() {
+        assertEquals(10 / 0, 4);
+    }
+
 }
